@@ -1,5 +1,5 @@
 [build]
-  command = "npx nx build customer-loyalty-rewards --configuration=production"
+  command = "npx nx run customer-loyalty-rewards:build --configuration=production"
   publish = "dist/apps/customer-loyalty-rewards"
 
 [[redirects]]

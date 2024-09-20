@@ -1,8 +1,8 @@
 [build]
   command = "npx nx run customer-loyalty-rewards:build --configuration=production"
-  publish = "dist/apps/customer-loyalty-rewards"
+  publish = "dist/apps/customer-loyalty-rewards/browser"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+    to = "/index.html"
   status = 200

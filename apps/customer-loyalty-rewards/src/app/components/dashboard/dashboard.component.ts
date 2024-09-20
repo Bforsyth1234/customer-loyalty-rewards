@@ -5,6 +5,7 @@ import { SupabaseClient, createClient } from '@supabase/supabase-js';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
+import { NgOptimizedImage } from '@angular/common';
 
 interface RecentActivity {
   description: string;
@@ -28,7 +29,7 @@ interface UserRewards {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   template: `
     <div class="dashboard bg-gray-100 min-h-screen p-8">
       <div class="max-w-6xl mx-auto">

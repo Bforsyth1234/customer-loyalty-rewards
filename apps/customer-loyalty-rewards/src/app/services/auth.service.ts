@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, from, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, from, map, of, tap } from 'rxjs';
 import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
 
@@ -45,6 +45,16 @@ export class AuthService {
         if (user) {
           this.userSubject.next(user);
         }
+      })
+    );
+  }
+
+  register(email: string, password: string): Observable<any> {
+    return from(this.supabase.auth.signUp({ email, password })).pipe(
+      map(response => response.data.user),
+      catchError(error => {
+        console.error('Registration error:', error);
+        return of(null);
       })
     );
   }

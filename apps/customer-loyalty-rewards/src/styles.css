@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom button gradient */
+.btn-gradient {
+  @apply bg-gradient-to-r from-red-500 to-pink-500 text-white;
+}
+
+/* Include Font Awesome */
+@import '@fortawesome/fontawesome-free/css/all.css';

@@ -1,1 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /* You can add global styles to this file, and also import other style files */
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-red-500 to-pink-500 text-white;
+}
+

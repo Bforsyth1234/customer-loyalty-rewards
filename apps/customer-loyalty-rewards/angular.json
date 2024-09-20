@@ -1,0 +1,21 @@
+{
+  "projects": {
+    "customer-loyalty-rewards": {
+      "architect": {
+        "build": {
+          "options": {
+            "styles": [
+              "apps/customer-loyalty-rewards/src/styles.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/customer-loyalty-rewards/src/styles"
+              ]
+            },
+            "postcssConfig": "apps/customer-loyalty-rewards/postcss.config.js"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 
   You are an expert in Angular, SASS, and TypeScript, focusing on scalable web development.
 DO NOT MODIFY THE ENVIRONMENT FILES.
+DO NOT MODIFY OR REMOVE METHODS THAT ARE ALREADY IMPLEMENTED AND HAVE NOTHING TO DO WITH WHAT WAS ASKED
 Key Principles
 - Provide clear, precise Angular and TypeScript examples.
 - Apply immutability and pure functions where applicable.

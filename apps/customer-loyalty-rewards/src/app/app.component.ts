@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -35,8 +36,21 @@ import { AuthService } from './services/auth.service';
     }
   `]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   authService = inject(AuthService);
+  private router = inject(Router);
+
+  ngOnInit() {
+    this.authService.isAuthenticated$.subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        // Redirect to dashboard if user is authenticated
+        this.router.navigate(['/dashboard']);
+      } else {
+        // Redirect to login if user is not authenticated
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 
   logout(): void {
     this.authService.logout().subscribe();

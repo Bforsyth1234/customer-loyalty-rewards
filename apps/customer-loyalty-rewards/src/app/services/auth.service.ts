@@ -24,17 +24,21 @@ export class AuthService {
       environment.supabaseKey
     );
 
+    this.initializeSession();
+  }
+
+  private async initializeSession() {
+    const { data: { session } } = await this.supabase.auth.getSession();
+    if (session) {
+      this.userSubject.next(session.user);
+    }
+
     this.supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN') {
         this.userSubject.next(session?.user ?? null);
       } else if (event === 'SIGNED_OUT') {
         this.userSubject.next(null);
       }
-    });
-
-    // Check for existing session
-    this.supabase.auth.getSession().then(({ data: { session } }) => {
-      this.userSubject.next(session?.user ?? null);
     });
   }
 
